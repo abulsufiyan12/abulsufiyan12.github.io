@@ -19,7 +19,7 @@ var displayCurrentTime = function() {
     var minutes = date.getMinutes();
     var seconds = date.getSeconds();
     $("hours").firstChild.nodeValue = padSingleDigit(hours);
-    $("minutes").firstChild.nodeValue = minutes;
+    $("minutes").firstChild.nodeValue = padSingleDigit(minutes);
     $("seconds").firstChild.nodeValue = padSingleDigit(seconds);
     $("ampm").firstChild.nodeValue = ampm;
 
