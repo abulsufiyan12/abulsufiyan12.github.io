@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tuxedo Cat Coffee</title>
+    <link type="text/css" rel="stylesheet" href="cafe.css">
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    
+    <script>
+     
+        function myFunction() {
+  var x = document.getElementById("order");
+  x.remove();
+}
+        
+        //jQuery
+        var selectedNames = [];
+        var selectedPrices = [];
+        
+        var names = ["espresso", "latte", "cappuccino", "coffee", "biscotti", "scone"];
+        
+        var prices = [1.95, 2.95, 3.45, 1.75, 1.95, 2.95];
+        
+        
+        
+        $(document).ready(function() {
+            
+            $("ul img").each(function() {
+                
+                var image_with_info = $(this).attr("id");
+                var image_wo_info = $(this).attr("src");
+                $(this).hover(function() {
+                    $(this).attr("src", image_with_info);
+                },
+                    function() {
+                    $(this).attr("src", image_wo_info);
+                });
+                
+                //Click event
+                $(this).click(function() {
+                    var selectedName = $(this).attr("alt");
+                    var index = names.indexOf(selectedName);
+                    var selectedPrice = prices[index];
+                    
+                    
+                    selectedNames[selectedNames.length] = selectedName;
+                    selectedPrices[selectedPrices.length] = selectedPrice;
+                    
+                    var htmlString = "";
+                    $("#order").html("");
+                    var total = 0;
+                    for(var i=0;i<selectedNames.length;i++) {
+                        htmlString += "<option>" + selectedNames[i] + " - " + selectedPrices[i] + "</option>";
+                        
+                        total += selectedPrices[i];
+                        
+                    }
+                    $("#order").html(htmlString);
+                    $("#total").html("Your total is " + total.toFixed(2));
+                    
+                    
+                       
+                });
+                
+            });
+            
+            
+        });
+        
+        
+    </script>
+    
+    
+    
+    
+</head>
+<body>
+    <header>
+        <img src="images/logo.png" alt="Tuxedo Cat Coffee"/>
+    </header>
+    <main>
+        <form id="order_form" name="order_form" action="checkout.html" method="get">
+            <section id="menu">
+            	<h2>Menu</h2>
+            	<p>Click an item to add it to your order.</p>
+            	<ul>
+            		<li><a href="#"><img id="images/espresso_info.jpg" src="images/espresso.jpg" alt="espresso"/></a></li>
+            		<li><a href="#"><img id="images/latte_info.jpg" src="images/latte.jpg" alt="latte"/></a></li>
+            		<li><a href="#"><img id="images/cappuccino_info.jpg" src="images/cappuccino.jpg" alt="cappuccino"/></a></li>
+            		<li><a href="#"><img id="images/coffee_info.jpg" src="images/coffee.jpg" alt="coffee"/></a></li>
+            		<li><a href="#"><img id="images/biscotti_info.jpg" src="images/biscotti.jpg" alt="biscotti"/></a></li>
+            		<li><a href="#"><img id="images/scone_info.jpg" src="images/scone.jpg" alt="scone"/></a></li>
+            	</ul>
+            </section>
+            
+            <section>
+            	<h2>Your Order</h2>
+            	<section>
+            		<select id="order" name="order" size="6">
+            		</select>
+            		<p id="total">&nbsp;</p>            		
+           		</section>
+                
+            	<section id="buttons">
+           			<input type="submit" name="place_order" id="place_order" value="Place Order">
+           			<input type="button" onclick="myFunction()" name="clear_order" id="clear_order" value="Clear Order">	
+            	</section>
+            </section> 
+
+
+
+        </form>
+    </main> 
+</body>
+</html>
