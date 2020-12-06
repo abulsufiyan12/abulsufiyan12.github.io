@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>GPA Calcuator</title>
+    <link rel="stylesheet" type="text/css" href="./assets/css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="Shortcut Icon" type="image/x-icon" href="assets/images/favicon.ico">
+
+</head>
+<script src="./assets/js/main.js"></script>
+<body>
+    <header>
+        <ul class="nav shadow">
+            
+            <li  class="nav-item"><a class="active" href="index.html"><img src="./assets/images/AUM_schoolname_Black02.png" class="main-logo"></a></li>
+            <li  class="nav-item"><a class="active" href="index.html">Home</a></li>
+            <li  class="nav-item"><a href="computerscience.html">Computer Science</a></li>
+            <li  class="nav-item"><a href="teachingassistance.html">Teaching Assistance</a></li>
+            <li  class="nav-item"><a href="gpacalucator.html">GPA Caluator</a></li>
+            <li  class="nav-item"><a href="map.html">Map</a></li>
+            <li  class="nav-item"><a href="aboutfaculty.html">About Faculty</a></li>
+           
+            <li  class="nav-item nav-right"><a href="#about"><input type="text" class="search" placeholder="&#128269" style="width: 150px;"></a></li>      
+                 
+          </ul>
+           <br><br>
+        </header>
+
+        <main>
+            <div style="background-image: url(./assets/images/bgi.jpg)">
+                <div class="header-data">
+            
+                   <br><br> 
+                  <h1 style="color:white;padding-left:30px;font-size: 50px;">Department of Computer Science</h1>
+    
+                  <br><br>
+                </div>
+                
+            </div>
+        <div class="show-content" style="border:none">
+            <div class="item"></div>
+            <div class="item2">
+                <center><h2>GPA Calcuator</h2></center>
+                <table class="w-100 form">
+                    <tr><td>Number of entries(Subjects):<td></td><td><input id="n_entries" type="number" min=0 class="search w-100"></td></tr>
+                    
+                </table>
+                <center>
+                    
+                    <br><br>
+                <input type="button" value="Get Entries" class="btn shadow" onclick="gen_input_fields();">
+               </center>
+                <table class="w-100 form table-data" id="entries">
+                    
+                </table>
+                <br><br>
+                <center><input id='submit_entries' type="button" value="Get Average Gpa" hidden class="btn shadow" onclick="average_gpa();"></center>
+                <center><p id='average_gpa' hidden></p>
+                <br><br>
+                </center>
+            </div>
+            <div class="item"></div>
+            <br><br>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer shadow">
+            <center>© Copyrigh 2020 : Abul</center>
+
+        </div>
+    </footer>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="./assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Survey Data</title>
+<style>
+    body {
+    	width: 500px;
+    	margin: 0 auto;
+    	padding: 0 30px;
+    	border: 2px solid blue;
+    }
+    dt {
+        font-weight: bold;
+    }
+</style>
+<script type="text/javascript">
+//<![CDATA[
+var decode = function ( text ) {
+    text = text.replace(/\+/g, " ");
+    text = text.replace(/%[a-fA-F0-9]{2}/g, 
+        function ( text ) {
+            return String.fromCharCode( "0x" + text.substr(1,2));
+        }
+    );
+    return text;
+}
+    
+var display_data = function () {
+    alert('-'+location.search+'-');
+    var query = location.search.replace("?", "");
+    if ( query == "" ) return;
+    
+    var fields = query.split("&");
+    
+    if ( fields.length == 0 ) {
+        document.write("<p>No data was submitted.</p>");
+    } else {
+        document.write("<dl>");
+        var field_parts;
+        for ( var i in fields ) {
+            field_parts = fields[i].split("=");
+            field_parts[0] = decode( field_parts[0] );
+            field_parts[1] = decode( field_parts[1] );
+            document.write("<dt>" + field_parts[0] + "</dt>");
+            document.write("<dd>" + field_parts[1] + "</dd>");
+        }
+        document.write("</dl>");
+    }
+}
+//]]>
+</script>
+
+    <link rel="stylesheet" type="text/css" href="./assets/css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="Shortcut Icon" type="image/x-icon" href="assets/images/favicon.ico">
+
+</head>
+<body>
+    <header>
+        <ul class="nav shadow">
+            
+            <li  class="nav-item"><a class="active" href="index.html"><img src="./assets/images/AUM_schoolname_Black02.png" class="main-logo"></a></li>
+            <li  class="nav-item"><a class="active" href="index.html">Home</a></li>
+            <li  class="nav-item"><a href="computerscience.html">Computer Science</a></li>
+            <li  class="nav-item"><a href="teachingassistance.html">Teaching Assistance</a></li>
+            <li  class="nav-item"><a href="gpacalucator.html">GPA Caluator</a></li>
+            <li  class="nav-item"><a href="map.html">Map</a></li>
+            <li  class="nav-item"><a href="aboutfaculty.html">About Faculty</a></li>
+           
+            <li  class="nav-item nav-right"><a href="#about"><input type="text" class="search" placeholder="&#128269" style="width: 150px;"></a></li>      
+                  
+            </ul>
+            
+        </header>
+        <br><br>
+        <main>
+
+        <div class="show-content" style="border:none">
+            <div class="item"></div>
+            <div class="item2">
+
+
+    <h1>Survey Data</h1>
+    <script>display_data();</script>
+</div>
+<div class="item"></div>
+</div>
+</main>
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+</body>
+</html>
